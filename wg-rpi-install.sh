@@ -31,7 +31,7 @@ fi
 
 declare -r -a SUPPORTED_BOARDS=(
     "a22042" # 2 Model B (with BCM2837) v1.2 1GB
-    "a02082" # 3 Model B v1.2	1GB
+    "a02082" # 3 Model B v1.2 1GB
     "a020a0" # Compute Module 3 (and CM3 Lite) v1.0 1GB
     "a22082" # 3 Model B v1.2 1GB
     "a32082" # 3 Model B v1.2 1GB
