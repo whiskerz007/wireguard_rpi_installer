@@ -15,9 +15,9 @@ function install_deb() {
     || failed
 }
 function install_make() {
-    declare -r path=(pwd)
-    declare -r tmp=(mktemp -d)
-    apt-get update \
+    declare -r path=(pwd) \
+               tmp=(mktemp -d) \
+    && apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y raspberrypi-kernel-headers libmnl-dev libelf-dev build-essential git \
     && git clone https://git.zx2c4.com/WireGuard $tmp \
