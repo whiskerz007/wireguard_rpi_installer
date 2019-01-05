@@ -25,7 +25,7 @@ function install_make() {
     && make \
     && make install \
     && cd $path \
-    && rm -rf $tmp
+    && rm -rf $tmp \
     && finish \
     || failed
 }
