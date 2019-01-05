@@ -12,6 +12,7 @@ function install() {
     && printf 'Package: *\nPin: release a=unstable\nPin-Priority: 150\n' | tee --append /etc/apt/preferences.d/limit-unstable \
     && apt-get update \
     && apt-get install -y wireguard \
+    && echo "wireguard" | tee --append /etc/modules \
     && modprobe wireguard \
     && sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf \
     && sysctl -p \
