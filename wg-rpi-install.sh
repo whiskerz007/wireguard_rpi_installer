@@ -12,8 +12,6 @@ function install() {
     && printf 'Package: *\nPin: release a=unstable\nPin-Priority: 150\n' | tee --append /etc/apt/preferences.d/limit-unstable \
     && apt-get update \
     && apt-get install -y wireguard \
-    # && sysctl -w net.ipv4.ip_forward=1 \
-    # Store "sysctl net.ipv4.ip_forward" setting for permenant change
     && modprobe wireguard \
     && exit 0 \
     || (echo "ERROR: Failed to complete installtion." && exit 1)
