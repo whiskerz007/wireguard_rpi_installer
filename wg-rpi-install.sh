@@ -20,11 +20,7 @@ function install() {
     || (echo "ERROR: Failed to complete installtion." && exit 1)
 }
 
-# Check for root permissions
 if [[ $EUID -ne 0 ]]; then
-#  __SELF="$( cd "$(dirname "$0")" ; pwd -P )/$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
-#  $__SELF $@
-#  exit $?
     echo "ERROR: This script requires root access. Try running with 'sudo'." \
     && exit 1
 fi
