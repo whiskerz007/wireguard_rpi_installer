@@ -37,7 +37,7 @@ declare -r -a SUPPORTED_BOARDS=(
     )
 declare -r BOARD=`awk '/^Revision/ {sub("^1000", "", $3); print $3}' /proc/cpuinfo`
 
-for i in ${!SUPPORTED_BOARDS}; do
+for i in "${SUPPORTED_BOARDS[@]}"; do
     if [[ ${i} == ${BOARD} ]]; then
         install
     fi
