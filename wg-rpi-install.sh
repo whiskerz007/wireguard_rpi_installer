@@ -21,7 +21,7 @@ function install() {
         "# WireGuard installation is complete! #\n" \
         "#######################################\n" \
     && exit 0 \
-    || (echo "ERROR: Failed to complete installtion." && exit 1)
+    || (echo "ERROR: Failed to complete installation." && exit 1)
 }
 
 if [[ $EUID -ne 0 ]]; then
