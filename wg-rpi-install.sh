@@ -7,12 +7,12 @@ function install() {
     apt-get update \
     && apt-get upgrade -y \
     && apt-get install -y raspberrypi-kernel-headers dirmngr \
-    && echo "deb http://deb.debian.org/debian/ unstable main" | tee --append /etc/apt/sources.list.d/unstable.list \
+    && echo "deb http://deb.debian.org/debian/ unstable main" | tee --append /etc/apt/sources.list.d/unstable.list 1>/dev/null \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553 \
-    && printf 'Package: *\nPin: release a=unstable\nPin-Priority: 150\n' | tee --append /etc/apt/preferences.d/limit-unstable \
+    && printf 'Package: *\nPin: release a=unstable\nPin-Priority: 150\n' | tee --append /etc/apt/preferences.d/limit-unstable 1>/dev/null \
     && apt-get update \
     && apt-get install -y wireguard \
-    && echo "wireguard" | tee --append /etc/modules \
+    && echo "wireguard" | tee --append /etc/modules 1>/dev/null \
     && modprobe wireguard \
     && sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf \
     && sysctl -p \
