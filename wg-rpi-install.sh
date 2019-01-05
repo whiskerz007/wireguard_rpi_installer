@@ -16,6 +16,10 @@ function install() {
     && modprobe wireguard \
     && sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf \
     && sysctl -p \
+    && echo -e "\n\n" \
+        "#######################################\n" \
+        "# WireGuard installation is complete! #\n" \
+        "#######################################\n" \
     && exit 0 \
     || (echo "ERROR: Failed to complete installtion." && exit 1)
 }
