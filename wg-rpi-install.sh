@@ -12,8 +12,10 @@ function install_deb() {
     && printf 'Package: *\nPin: release a=unstable\nPin-Priority: 150\n' | tee --append /etc/apt/preferences.d/limit-unstable 1>/dev/null \
     && apt-get update \
     && apt-get install -y wireguard \
+    && finish \
     || failed
 }
+
 function install_make() {
     declare -r path=(pwd) \
                tmp=(mktemp -d) \
@@ -29,9 +31,8 @@ function install_make() {
     && finish \
     || failed
 }
+
 function finish() {
-    # echo "wireguard" | tee --append /etc/modules 1>/dev/null \
-    # && modprobe wireguard \
     sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf \
     && sysctl -p \
     && echo -e "\n\n" \
@@ -41,6 +42,7 @@ function finish() {
     && exit 0 \
     || failed
 }
+
 function failed() {
     echo "ERROR: Failed to complete installation." \
     && exit 1
